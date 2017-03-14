@@ -111,7 +111,7 @@ def run_training():
             feed_dict = {x: batch[0], y_: batch[1], keep_prob: 0.5}
             _, loss_value = sess.run([train_step, cross_entropy], feed_dict=feed_dict)
 
-            if step % 100 == 0:
+            if step % 500 == 0:
                 saver.save(sess, os.path.join(FLAGS.train_dir, "model.ckpt"), step)
                 train_accuracy = accuracy.eval(feed_dict=feed_dict)
                 print("step %d, loss_value %.2f,training accuracy %g" % (step, loss_value, train_accuracy))
